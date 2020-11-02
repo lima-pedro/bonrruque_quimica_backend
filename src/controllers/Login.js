@@ -8,9 +8,9 @@ module.exports = {
 
     try {
       const user = await User.findOne({ where: { email: email } })
-      if (!user) response.status(404).send();
+      if (!user) return response.status(404).send();
       const senhaHash = await bcrypt.compare(senha, user.senha);
-      if (!senhaHash) response.status(400).json({ msg: 'Invalid Password' });
+      if (!senhaHash) return response.status(400).json({ msg: 'Invalid Password' });
       return response.status(201).json({
         user: user,
         token: generateToken({ id: user.id })

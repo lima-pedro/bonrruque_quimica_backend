@@ -29,7 +29,7 @@ routes.delete('/order/:id', auth, PedidoController.delete);
 
 routes.get('/users', auth,UserController.index);
 routes.get('/user/:id', auth,UserController.show);
-routes.post('/user', auth,UserController.create);
+routes.post('/user',UserController.create);
 routes.put('/user/:id', auth,UserController.update);
 routes.delete('/user/:id', auth,UserController.delete);
 
