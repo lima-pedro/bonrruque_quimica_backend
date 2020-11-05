@@ -5,9 +5,9 @@ module.exports = {
     try {
       const products = await Product.findAll();
 
-      if (!products) return response.status(404).send();
+      if (!products) return response.status(404).json({ error: 'Não existem produtos cadastrados' });
 
-      return response.status(200).json({ products });
+      return response.status(200).json(products);
 
     } catch (error) {
       return response.status(400).json({ msg: 'Error fetching products. Try again' + error });
@@ -21,7 +21,7 @@ module.exports = {
       const product = await Product.findOne({ where: { id: id} });
       if (!product) return response.status(404).send();
 
-      return response.status(200).json({ product: product });
+      return response.status(200).json(product);
 
     } catch (error) {
       return response.status(400).json({ msg: 'Error fetching produtcs', error });

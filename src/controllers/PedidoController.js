@@ -7,7 +7,7 @@ module.exports =  {
       
       if (!orders) response.status(404).send();
 
-      return response.status(200).json({ orders: orders });
+      return response.status(200).json(orders);
       
     } catch (error) {
       return response.status(400).json({ msg: `Error fetching orders: ${error}` });

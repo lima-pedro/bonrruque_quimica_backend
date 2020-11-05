@@ -6,7 +6,7 @@ module.exports = {
     try {
       const clients = await Cliente.findAll();
       if (!clients) return response.status(404).json({ msg: 'Clients not found' });
-      return response.status(200).json({ clients: clients });
+      return response.status(200).json(clients);
     } catch (error) {
       return response.status(400).json({ msg: `Error fetching clients: ${error}` });
     }
@@ -21,7 +21,7 @@ module.exports = {
 
       if (!client) return response.status(404).send();
 
-      return response.status(200).json({ client: client });
+      return response.status(200).json(client);
 
     } catch (error) {
       return response.status(400).json({ msg: `Error fetching client: ${error}` });
